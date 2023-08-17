@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Header from "./components/Header";
+import { ReminderListConstant } from "./constant/ReminderListConstant";
+import ReminderList from "./components/ReminderList";
+import { useState } from "react";
 
 function App() {
+  // const [ReminderListConstant, setReminderListConstant] =
+  //   useState(ReminderListConstant);
+  const [brandName, setBrandName] = useState("React-toDo");
+
+  const handlerReminderListAddItem = (data) => {
+    // just checking how state work's here
+    setBrandName("React-toDo-Learning");
+    console.log("event came here", data);
+    //todo- need to know how we can update the ReminderListConstant with newData
+    console.log("new data", ReminderListConstant);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header brandName={brandName}></Header>
+      <ReminderList
+        list={ReminderListConstant}
+        addItem={handlerReminderListAddItem}
+      ></ReminderList>
     </div>
   );
 }
