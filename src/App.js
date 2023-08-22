@@ -24,7 +24,6 @@ function App() {
       setReminderList(intialReminderList);
     } else {
       const filteredData = intialReminderList.filter((item) => {
-        console.log(item.name.split(" ").includes(searchItem));
         return (
           item.name
             .toLowerCase()
