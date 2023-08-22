@@ -1,6 +1,12 @@
 .header_position{
-    position: fixed;
+        position: fixed;
         width: 100%;
         z-index: 1;
         height: auto
+}
+.search_input{
+    margin-right: 2rem;
+    color: black;
+    text-align-last: center;
+        
 }
