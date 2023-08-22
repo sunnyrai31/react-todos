@@ -16,10 +16,8 @@ function ReminderList(props) {
           onClick={addNewItem}
         >
           <div className="card-body">
-            <h5 class="card-title">Add new</h5>
-            <i class="bi bi-clipboard2-plus bi-lg"></i>
-
-            {/* <p className="card-text">{item.email}</p> */}
+            <h5 className="card-title">Add new</h5>
+            <i className="bi bi-clipboard2-plus bi-lg"></i>
           </div>
         </div>
       </>
@@ -38,7 +36,7 @@ function ReminderList(props) {
                 alt="#"
               />
               <div className="card-body">
-                <h5 class="card-title">{item.name}</h5>
+                <h5 className="card-title">{item.name}</h5>
                 <p className="card-text">{item.email}</p>
               </div>
             </div>
