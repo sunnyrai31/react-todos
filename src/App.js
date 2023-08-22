@@ -1,27 +1,26 @@
 import logo from "./logo.svg";
+import { ReminderListConstant as ReminderListAlias } from "./constant/ReminderListConstant"; // Renamed import
 import "./App.css";
 import Header from "./components/Header";
-import { ReminderListConstant } from "./constant/ReminderListConstant";
+
 import ReminderList from "./components/ReminderList";
 import { useState } from "react";
 
 function App() {
-  // const [ReminderListConstant, setReminderListConstant] =
-  //   useState(ReminderListConstant);
+  const [reminderList, setReminderList] = useState(ReminderListAlias); // Updated state variable name
   const [brandName, setBrandName] = useState("React-toDo");
 
   const handlerReminderListAddItem = (data) => {
-    // just checking how state work's here
     setBrandName("React-toDo-Learning");
-    console.log("event came here", data);
-    //todo- need to know how we can update the ReminderListConstant with newData
-    console.log("new data", ReminderListConstant);
+    const newData = [...reminderList, data];
+    setReminderList(newData);
   };
+
   return (
     <div className="App">
       <Header brandName={brandName}></Header>
       <ReminderList
-        list={ReminderListConstant}
+        list={reminderList}
         addItem={handlerReminderListAddItem}
       ></ReminderList>
     </div>
