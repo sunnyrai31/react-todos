@@ -1,5 +1,6 @@
 import React from "react";
 import { newItem } from "../constant/ReminderListConstant";
+import "../styles/ReminderList.css";
 function ReminderList(props) {
   const imageSize = {
     width: "18rem",
@@ -10,31 +11,42 @@ function ReminderList(props) {
   const emptyCard = () => {
     return (
       <>
-        <div
-          className="card col-md-4 m-3"
-          style={imageSize}
-          onClick={addNewItem}
-        >
-          <div className="card-body">
-            <h5 className="card-title">Add new</h5>
-            <i className="bi bi-clipboard2-plus bi-lg"></i>
+        <div className="card col-md-4 m-3 firework-card" style={imageSize}>
+          <div
+            className="card-body text-center padding-top-50"
+            onClick={addNewItem}
+          >
+            <i className="bi bi-plus-circle fs-1 text-primary"></i>
+            <p className="card-text">Add New Item</p>
           </div>
         </div>
       </>
     );
   };
 
+  const deleteCard = (index) => {
+    props.deleteItemCB(index);
+  };
+
   return (
     <div className="container-fluid">
-      <div className="row p-5">
+      <div className="row padding-6">
         {props.list.map((item, index) => {
           return (
-            <div key={index} className="card col-md-4 m-3" style={imageSize}>
-              <img
-                src={item.image}
-                className="card-img-top rounded img-fluid"
-                alt="#"
-              />
+            <div
+              key={index}
+              className="card col-md-4 m-3 firework-card"
+              style={imageSize}
+            >
+              <img src={item.image} className="rounded-circle" alt="#" />
+              <button
+                className="delete-button "
+                title="Delete this card"
+                type="button"
+                onClick={() => deleteCard(index)}
+              >
+                <i className="bi bi-trash3"></i>
+              </button>
               <div className="card-body">
                 <h5 className="card-title">{item.name}</h5>
                 <p className="card-text">{item.email}</p>
