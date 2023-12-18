@@ -9,8 +9,6 @@ function Header(props) {
   };
   const clearSearch = (event) => {
     props.searchItemCB("");
-    //todo - Need to implement clearSearch here.
-    // setSearchText("");
   };
   return (
     <div className="header_position">

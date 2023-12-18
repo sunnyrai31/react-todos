@@ -1,6 +1,7 @@
 import React from "react";
 import { newItem } from "../constant/ReminderListConstant";
 import "../styles/ReminderList.css";
+
 function ReminderList(props) {
   const imageSize = {
     width: "18rem",
@@ -8,6 +9,11 @@ function ReminderList(props) {
   const addNewItem = () => {
     props.addItem(newItem);
   };
+
+  /**
+   * this method is responsible to adding empty card, from which user can add the item
+   * @returns a jsx.
+   */
   const emptyCard = () => {
     return (
       <>
@@ -23,7 +29,10 @@ function ReminderList(props) {
       </>
     );
   };
-
+  /**
+   * responsibility - deleting the card
+   * @param {*} index
+   */
   const deleteCard = (index) => {
     props.deleteItemCB(index);
   };
